@@ -9,32 +9,36 @@ namespace MF.Theater.UI.Authentication
     {
         protected override void Seed(ApplicationDbContext context)
         {
-            var userManager = new ApplicationUserManager(new UserStore<ApplicationUser>(context));
-            userManager.PasswordValidator = new PasswordValidator
+            using (var userManager = new ApplicationUserManager(new UserStore<ApplicationUser>(context)))
             {
-                RequiredLength = 1,
-                RequireNonLetterOrDigit = false,
-                RequireDigit = false,
-                RequireLowercase = false,
-                RequireUppercase = false,
-            };
-            var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
+                userManager.PasswordValidator = new PasswordValidator
+                {
+                    RequiredLength = 1,
+                    RequireNonLetterOrDigit = false,
+                    RequireDigit = false,
+                    RequireLowercase = false,
+                    RequireUppercase = false,
+                };
+                var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
 
-            var adminRole = new IdentityRole{Name = "admin"};
-            var userRole = new IdentityRole { Name = "user" };
+                var adminRole = new IdentityRole { Name = "admin" };
+                var userRole = new IdentityRole { Name = "user" };
 
-            roleManager.Create(adminRole);
-            roleManager.Create(userRole);
+                roleManager.Create(adminRole);
+                roleManager.Create(userRole);
 
-            var admin = new ApplicationUser{Email = "admin@admin.ru", UserName = "admin"};
+                var admin = new ApplicationUser { Email = "admin@admin.ru", UserName = "admin@admin.ru", EmailConfirmed = true };
 
-            var userCreationResult = userManager.Create(admin, "admin");
+                var userCreationResult = userManager.Create(admin, "admin");
 
-            if (userCreationResult.Succeeded)
-            {
-                userManager.AddToRole(admin.Id, adminRole.Name);
-                userManager.AddToRole(admin.Id, userRole.Name);
+                if (userCreationResult.Succeeded)
+                {
+                    userManager.AddToRole(admin.Id, adminRole.Name);
+                    userManager.AddToRole(admin.Id, userRole.Name);
+                }
+                
             }
+
             base.Seed(context);
         }
     }
