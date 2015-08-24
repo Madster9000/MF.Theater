@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace MF.Theater.UI.Models
+namespace MF.Theater.UI.Authentication
 {
     public class ExternalLoginConfirmationViewModel
     {

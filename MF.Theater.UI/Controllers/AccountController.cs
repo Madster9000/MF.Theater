@@ -5,10 +5,10 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using MF.Theater.UI.Authentication;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using MF.Theater.UI.Models;
 
 namespace MF.Theater.UI.Controllers
 {

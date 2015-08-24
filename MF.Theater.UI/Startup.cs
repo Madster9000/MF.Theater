@@ -1,5 +1,5 @@
 ﻿using System;
-using MF.Theater.UI.Models;
+using MF.Theater.UI.Authentication;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;

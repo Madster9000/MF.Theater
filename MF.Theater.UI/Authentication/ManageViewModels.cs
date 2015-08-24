@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
 
-namespace MF.Theater.UI.Models
+namespace MF.Theater.UI.Authentication
 {
     public class IndexViewModel
     {
