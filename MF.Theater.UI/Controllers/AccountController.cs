@@ -15,8 +15,8 @@ namespace MF.Theater.UI.Controllers
     [Authorize]
     public class AccountController : Controller
     {
-        private ApplicationSignInManager _signInManager;
-        private ApplicationUserManager _userManager;
+        private ApplicationSignInManager mSignInManager;
+        private ApplicationUserManager mUserManager;
 
         public AccountController()
         {
@@ -32,11 +32,11 @@ namespace MF.Theater.UI.Controllers
         {
             get
             {
-                return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
+                return mSignInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
             }
             private set 
             { 
-                _signInManager = value; 
+                mSignInManager = value; 
             }
         }
 
@@ -44,11 +44,11 @@ namespace MF.Theater.UI.Controllers
         {
             get
             {
-                return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+                return mUserManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
             }
             private set
             {
-                _userManager = value;
+                mUserManager = value;
             }
         }
 
@@ -407,16 +407,16 @@ namespace MF.Theater.UI.Controllers
         {
             if (disposing)
             {
-                if (_userManager != null)
+                if (mUserManager != null)
                 {
-                    _userManager.Dispose();
-                    _userManager = null;
+                    mUserManager.Dispose();
+                    mUserManager = null;
                 }
 
-                if (_signInManager != null)
+                if (mSignInManager != null)
                 {
-                    _signInManager.Dispose();
-                    _signInManager = null;
+                    mSignInManager.Dispose();
+                    mSignInManager = null;
                 }
             }
 
