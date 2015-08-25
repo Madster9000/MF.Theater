@@ -50,6 +50,9 @@
   <ItemGroup>
     <Compile Include="Factories\IDbContextFactory.cs" />
     <Compile Include="Factories\TheaterContextFactory.cs" />
+    <Compile Include="Mappings\PerfomanceMap.cs" />
+    <Compile Include="Mappings\PlayPeriodMap.cs" />
+    <Compile Include="Mappings\TicketMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TheaterContext.cs" />
     <Compile Include="TheaterContextInitializer.cs" />

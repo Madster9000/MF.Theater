@@ -3,32 +3,28 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using MF.Theater.Services.Queries;
+using MF.Theater.UI.ViewModels;
 
 namespace MF.Theater.UI.Controllers
 {
     public class HomeController : Controller
     {
-        public HomeController()
+        private readonly IPerfomanceQueries mPerfomanceQueries;
+
+        public HomeController(IPerfomanceQueries perfomanceQueries)
         {
+            mPerfomanceQueries = perfomanceQueries;
         }
 
         public ActionResult Index()
         {
-            return View();
+            var viewModel = new PerfomanceViewModel
+            {
+                Perfomances = mPerfomanceQueries.SelectAll()
+            };
+            return View(viewModel);
         }
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
     }
 }

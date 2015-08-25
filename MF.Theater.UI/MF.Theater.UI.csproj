@@ -184,6 +184,9 @@
     <Compile Include="Authentication\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="UnityExtensions\AuthenticationExtension.cs" />
+    <Compile Include="UnityExtensions\QueriesExtension.cs" />
+    <Compile Include="ViewModels\PerfomanceViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -228,9 +231,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
     <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
@@ -251,6 +251,7 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -263,6 +264,14 @@
     <ProjectReference Include="..\MF.Theater.Context\MF.Theater.Context.csproj">
       <Project>{67F81514-84C6-4D72-B739-B1514407CBC4}</Project>
       <Name>MF.Theater.Context</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MF.Theater.DataModel\MF.Theater.DataModel.csproj">
+      <Project>{50CA329A-C753-4A21-9245-1B763F545D52}</Project>
+      <Name>MF.Theater.DataModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MF.Theater.Services\MF.Theater.Services.csproj">
+      <Project>{F61411E6-FF26-44BA-95BF-75CB3995C42C}</Project>
+      <Name>MF.Theater.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
