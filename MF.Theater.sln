@@ -12,6 +12,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{DC25F8
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MF.Theater.DataModel", "MF.Theater.DataModel\MF.Theater.DataModel.csproj", "{50CA329A-C753-4A21-9245-1B763F545D52}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MF.Theater.Context", "MF.Theater.Context\MF.Theater.Context.csproj", "{67F81514-84C6-4D72-B739-B1514407CBC4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -22,6 +26,14 @@ Global
 		{DFFFA459-462B-4E63-85DA-C468E0D87C5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DFFFA459-462B-4E63-85DA-C468E0D87C5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DFFFA459-462B-4E63-85DA-C468E0D87C5B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50CA329A-C753-4A21-9245-1B763F545D52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50CA329A-C753-4A21-9245-1B763F545D52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50CA329A-C753-4A21-9245-1B763F545D52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50CA329A-C753-4A21-9245-1B763F545D52}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67F81514-84C6-4D72-B739-B1514407CBC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67F81514-84C6-4D72-B739-B1514407CBC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67F81514-84C6-4D72-B739-B1514407CBC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67F81514-84C6-4D72-B739-B1514407CBC4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

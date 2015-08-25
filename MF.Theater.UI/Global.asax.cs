@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using MF.Theater.Context;
 using MF.Theater.UI.Authentication;
 
 namespace MF.Theater.UI
@@ -16,6 +17,12 @@ namespace MF.Theater.UI
         {
             Database.SetInitializer(new AuthenticationDbInitializer());
             using (var db = new ApplicationDbContext())
+            {
+                db.Database.Initialize(true);
+            }
+
+            Database.SetInitializer(new TheaterContextInitializer());
+            using (var db = new TheaterContext())
             {
                 db.Database.Initialize(true);
             }
