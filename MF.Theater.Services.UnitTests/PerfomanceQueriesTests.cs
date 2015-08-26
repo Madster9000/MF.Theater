@@ -24,9 +24,10 @@ namespace MF.Theater.Services.UnitTests
             mDbContextFactoryMock = new Mock<IDbContextFactory>();
             mClassUnderTest = new PerfomanceQueries(mDbContextFactoryMock.Object);
         }
+        
 
         [Test]
-        public void SelectAll_ContextHasPerfomances_ReturnsCorrectCollection()
+        public void PerfomancesCount_ContextHasPerfomances_ReturnsExpectedCount()
         {
             //Arrange
             var expectation = new List<Perfomance>
@@ -46,10 +47,10 @@ namespace MF.Theater.Services.UnitTests
                 .Returns(contextMock.Object);
 
             //Act
-            var executionResult = mClassUnderTest.SelectAll();
+            var executionResult = mClassUnderTest.PerfomancesCount();
 
             //Assert
-            executionResult.ShouldBeEquivalentTo(expectation);
+            executionResult.ShouldBeEquivalentTo(expectation.Count);
         }
 
     }

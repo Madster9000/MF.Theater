@@ -23,10 +23,8 @@ CreateDatabaseIfNotExists<ApplicationDbContext>
                 var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
 
                 var adminRole = new IdentityRole { Name = "admin" };
-                var userRole = new IdentityRole { Name = "user" };
 
                 roleManager.Create(adminRole);
-                roleManager.Create(userRole);
 
                 var admin = new ApplicationUser { Email = "admin@admin.ru", UserName = "admin@admin.ru", EmailConfirmed = true };
 
@@ -35,7 +33,6 @@ CreateDatabaseIfNotExists<ApplicationDbContext>
                 if (userCreationResult.Succeeded)
                 {
                     userManager.AddToRole(admin.Id, adminRole.Name);
-                    userManager.AddToRole(admin.Id, userRole.Name);
                 }
                 
             }

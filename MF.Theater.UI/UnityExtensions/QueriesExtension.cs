@@ -9,7 +9,7 @@ namespace MF.Theater.UI.UnityExtensions
         protected override void Initialize()
         {
             Container.RegisterType<IPerfomanceQueries, PerfomanceQueries>();
-            Container.RegisterType<IDbContextFactory, TheaterContextFactory>();
+            Container.RegisterType<IDbContextFactory, TheaterContextWithoutProxiesFactory>();
         }
     }
 }

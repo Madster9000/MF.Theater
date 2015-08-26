@@ -1,9 +1,8 @@
 using System;
-using System.Collections.Generic;
 
-namespace MF.Theater.DataModel
+namespace MF.Theater.DTO
 {
-    public class PlayPeriod
+    public class PlayPeriodDto
     {
         public Guid Id { get; set; }
 
@@ -13,7 +12,5 @@ namespace MF.Theater.DataModel
         public int TicketsCapacity { get; set; }
 
         public Guid PerfomanceId { get; set; }
-        public virtual Perfomance Perfomance { get; set; }
-        public virtual ICollection<Ticket> Tickets { get; set; }
     }
 }

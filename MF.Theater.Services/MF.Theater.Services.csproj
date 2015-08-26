@@ -62,6 +62,10 @@
       <Project>{50CA329A-C753-4A21-9245-1B763F545D52}</Project>
       <Name>MF.Theater.DataModel</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MF.Theater.DTO\MF.Theater.DTO.csproj">
+      <Project>{23AE8DEC-1622-4363-A5FB-BE2C6197AEAA}</Project>
+      <Name>MF.Theater.DTO</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

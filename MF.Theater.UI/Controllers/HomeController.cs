@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using MF.Theater.Services.Queries;
-using MF.Theater.UI.ViewModels;
 
 namespace MF.Theater.UI.Controllers
 {
@@ -19,11 +14,17 @@ namespace MF.Theater.UI.Controllers
 
         public ActionResult Index()
         {
-            var viewModel = new PerfomanceViewModel
+            if (!HttpContext.User.Identity.IsAuthenticated)
             {
-                Perfomances = mPerfomanceQueries.SelectAll()
-            };
-            return View(viewModel);
+                return View();
+            }
+
+            if (HttpContext.User.IsInRole("admin"))
+            {
+                return View("AdminHome");
+            }
+
+            return View("UserHome");
         }
 
     }

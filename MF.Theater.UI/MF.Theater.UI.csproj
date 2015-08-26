@@ -176,6 +176,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PerfomancesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -186,7 +187,6 @@
     <Compile Include="Startup.cs" />
     <Compile Include="UnityExtensions\AuthenticationExtension.cs" />
     <Compile Include="UnityExtensions\QueriesExtension.cs" />
-    <Compile Include="ViewModels\PerfomanceViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -256,9 +256,12 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\AdminHome.cshtml" />
+    <Content Include="Views\Home\UserHome.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Perfomances\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -272,6 +275,10 @@
     <ProjectReference Include="..\MF.Theater.DataModel\MF.Theater.DataModel.csproj">
       <Project>{50CA329A-C753-4A21-9245-1B763F545D52}</Project>
       <Name>MF.Theater.DataModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MF.Theater.DTO\MF.Theater.DTO.csproj">
+      <Project>{23AE8DEC-1622-4363-A5FB-BE2C6197AEAA}</Project>
+      <Name>MF.Theater.DTO</Name>
     </ProjectReference>
     <ProjectReference Include="..\MF.Theater.Services\MF.Theater.Services.csproj">
       <Project>{F61411E6-FF26-44BA-95BF-75CB3995C42C}</Project>

@@ -13,6 +13,7 @@ namespace MF.Theater.Context
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+
             modelBuilder.Configurations.Add(new PerfomanceMap());
             modelBuilder.Configurations.Add(new TicketMap());
             modelBuilder.Configurations.Add(new PlayPeriodMap());

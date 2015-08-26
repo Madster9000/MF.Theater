@@ -22,6 +22,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTests", "UnitTests", "{
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MF.Theater.Services.UnitTests", "MF.Theater.Services.UnitTests\MF.Theater.Services.UnitTests.csproj", "{5864478F-E51B-4765-B37C-8846DC0D723C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MF.Theater.DTO", "MF.Theater.DTO\MF.Theater.DTO.csproj", "{23AE8DEC-1622-4363-A5FB-BE2C6197AEAA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,6 +50,10 @@ Global
 		{5864478F-E51B-4765-B37C-8846DC0D723C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5864478F-E51B-4765-B37C-8846DC0D723C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5864478F-E51B-4765-B37C-8846DC0D723C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23AE8DEC-1622-4363-A5FB-BE2C6197AEAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23AE8DEC-1622-4363-A5FB-BE2C6197AEAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23AE8DEC-1622-4363-A5FB-BE2C6197AEAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23AE8DEC-1622-4363-A5FB-BE2C6197AEAA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
