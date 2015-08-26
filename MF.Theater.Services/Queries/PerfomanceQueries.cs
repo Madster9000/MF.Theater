@@ -53,8 +53,10 @@ namespace MF.Theater.Services.Queries
                             .ToList();
                 }
 
-                context.Database.Log = msg => Debug.WriteLine(msg);
+                
                 //На мой взгляд, лучше сделать так. Либо писать хитровымудренный скрипт для подтягивания связанных сущностей в одном запросе.
+                //context.Database.Log = msg => Debug.WriteLine(msg);
+
                 //var result =
                 //    context.Set<Perfomance>()
                 //    .OrderBy(x => x.Name)
