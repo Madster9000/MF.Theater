@@ -4,8 +4,9 @@ using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace MF.Theater.UI.Authentication
 {
-    public class AuthenticationDbInitializer: DropCreateDatabaseAlways<ApplicationDbContext>
-//CreateDatabaseIfNotExists<ApplicationDbContext>
+    public class AuthenticationDbInitializer: 
+        //DropCreateDatabaseAlways<ApplicationDbContext>
+CreateDatabaseIfNotExists<ApplicationDbContext>
     {
         protected override void Seed(ApplicationDbContext context)
         {

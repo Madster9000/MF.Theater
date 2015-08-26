@@ -5,7 +5,8 @@ using MF.Theater.DataModel;
 
 namespace MF.Theater.Context
 {
-    public class TheaterContextInitializer : DropCreateDatabaseAlways<TheaterContext>
+    public class TheaterContextInitializer : CreateDatabaseIfNotExists<TheaterContext>
+        //DropCreateDatabaseAlways<TheaterContext>
     {
         protected override void Seed(TheaterContext context)
         {
