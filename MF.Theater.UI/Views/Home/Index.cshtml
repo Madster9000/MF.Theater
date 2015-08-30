@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Афиши";
 }
 
@@ -8,7 +7,9 @@
 {
     <script src="~/Content/Services/PerfomancesService.js"></script>
     <script src="~/Content/Services/PagesService.js"></script>
+<script src="~/Content/ViewModels/PerfomancesFilterParameters.js"></script>
     <script src="~/Content/ViewModels/IndexPageViewModel.js"></script>
+
 }
 <div id="PageBody">
 
@@ -39,43 +40,44 @@
                    data-bind="value: PerfomancesFilterParameters.Name">
         </li>
     </ul>
-        <div data-bind="foreach: Perfomances">
-            <h3 data-bind="text: Name"></h3>
-            <p data-bind="text: Description"></p>
+    <button type="button" class="btn btn-primary" data-bind="click: ApplyFilters">Отфильтровать</button>
+    <div data-bind="foreach: Perfomances">
+        <h3 data-bind="text: Name"></h3>
+        <p data-bind="text: Description"></p>
 
 
-            <ul class="list-group" data-bind="foreach: PlayPeriods">
-                <li class="list-group-item">
-                    <ul class="list-inline">
-                        <li>
-                            <div class="panel panel-primary">
-                                <div class="panel-heading">Начало:</div>
-                                <div class="panel-body" data-bind="text: StartDate">
-                                </div>
+        <ul class="list-group" data-bind="foreach: PlayPeriods">
+            <li class="list-group-item">
+                <ul class="list-inline">
+                    <li>
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">Начало:</div>
+                            <div class="panel-body" data-bind="text: StartDate">
                             </div>
-                        </li>
-                        <li>
-                            <div class="panel panel-primary">
-                                <div class="panel-heading">Конец:</div>
-                                <div class="panel-body" data-bind="text: EndDate"></div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="panel panel-primary">
-                                <div class="panel-heading">количество билетов:</div>
-                                <div class="panel-body" data-bind="text: TicketsCapacity"></div>
-                            </div>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-
-            <hr />
-        </div>
-
-        <ul class="pagination" data-bind="foreach: PagesArray">
-            <li><span data-bind="text: itemIndex, click: $parent.ApplyPage" style="cursor: pointer"></span></li>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">Конец:</div>
+                            <div class="panel-body" data-bind="text: EndDate"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">количество билетов:</div>
+                            <div class="panel-body" data-bind="text: TicketsCapacity"></div>
+                        </div>
+                    </li>
+                </ul>
+            </li>
         </ul>
+
+        <hr />
+    </div>
+
+    <ul class="pagination" data-bind="foreach: PagesArray">
+        <li><span data-bind="text: itemIndex, click: $parent.ApplyPage" style="cursor: pointer"></span></li>
+    </ul>
 </div>
 
 

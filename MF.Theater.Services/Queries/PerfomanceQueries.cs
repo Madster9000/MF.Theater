@@ -19,15 +19,6 @@ namespace MF.Theater.Services.Queries
         }
 
 
-
-        public int PerfomancesCount()
-        {
-            using (var context = mDbContextFactory.CreateContext())
-            {
-                return context.Set<Perfomance>().Count();
-            }
-        }
-
         public ICollection<PerfomanceDto> SelectPagedPerfomances(int pageNumber, int recordsOnPage, DateTime startDate, DateTime endDate, string name)
         {
             using (var context = mDbContextFactory.CreateContext())
@@ -100,6 +91,24 @@ namespace MF.Theater.Services.Queries
                 //    .ToList();
 
                 return result;
+            }
+        }
+
+        public int PerfomancesCount(DateTime startDate, DateTime endDate, string name)
+        {
+            using (var context = mDbContextFactory.CreateContext())
+            {
+                return context
+                    .Set<Perfomance>()
+                    .Count
+                    (
+                        x =>
+                            x.PlayPeriods.Any(y=> y.StartDate >= startDate)
+                            &&
+                            x.PlayPeriods.Any(y => y.EndDate <= endDate)
+                            &&
+                            x.Name.Contains(name)
+                    );
             }
         }
     }

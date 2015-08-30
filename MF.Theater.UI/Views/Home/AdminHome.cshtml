@@ -7,7 +7,7 @@
     <script src="~/Content/Services/MessagesService.js"></script>
     <script src="~/Content/Services/PerfomancesService.js"></script>
     <script src="~/Content/Services/PagesService.js"></script>
-
+<script src="~/Content/ViewModels/PerfomancesFilterParameters.js"></script>
     <script src="~/Content/ViewModels/PlayPeriodViewModel.js"></script>
     <script src="~/Content/ViewModels/CreatePerfomanceViewModel.js"></script>
     <script src="~/Content/ViewModels/AdminPageViewModel.js"></script>
@@ -75,6 +75,34 @@
 
 
 <div id="PageBody">
+    <ul class="list-inline">
+        <li>
+            <label for="startDateFilter">Начало</label>
+            <input type="text"
+                   class="form-control datetimepicker"
+                   id="startDateFilter"
+                   data-provide="datetimepicker"
+                   data-bind="value: PerfomancesFilterParameters.StartDate"
+                   data-date-autoclose="true">
+        </li>
+        <li>
+            <label for="endDateFilterDateFilter">Конец</label>
+            <input type="text"
+                   class="form-control datetimepicker"
+                   id="endDateFilter"
+                   data-provide="datetimepicker"
+                   data-bind="value: PerfomancesFilterParameters.EndDate"
+                   data-date-autoclose="true">
+        </li>
+        <li>
+            <label for="nameFilter">Имя</label>
+            <input type="text"
+                   class="form-control"
+                   id="nameFilter"
+                   data-bind="value: PerfomancesFilterParameters.Name">
+        </li>
+    </ul>
+    <button type="button" class="btn btn-primary" data-bind="click: ApplyFilters">Отфильтровать</button>
     <div data-bind="foreach: Perfomances">
         <form>
             <div class="form-group">
@@ -82,14 +110,14 @@
                     Название:
                     <input type="text" class="form-control" data-bind="value: Name">
                 </label>
-                
+
             </div>
             <div class="form-group">
                 <label>
                     Описание:
                     <textarea class="form-control" data-bind="value: Description"></textarea>
                 </label>
-                
+
             </div>
 
             <ul class="list-group" data-bind="foreach: PlayPeriods">
@@ -136,7 +164,7 @@
 
 
 
-            <hr />
+            <hr/>
         </form>
     </div>
 

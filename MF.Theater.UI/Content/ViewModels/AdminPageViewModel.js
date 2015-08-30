@@ -7,38 +7,53 @@
     var pagesService = PagesService();
     var messagesService = MessagesService.GetInstance();
 
-    var applyPerfomances = function (perfomances) {
-        self.Perfomances(perfomances);
-    }
-
     var applyPerfomancesCount = function (pagesCount) {
+        console.log(pagesCount);
         self.PerfomancesCount(pagesCount);
 
         var pages = pagesService.ComputePages(pagesCount, itemsOnPage);
         self.PagesArray(pages);
-
-        perfomancesService.GetPage(1, itemsOnPage, applyPerfomances);
     }
 
-    var initialize = function()
+    var applyPerfomances = function (perfomances) {
+        self.Perfomances(perfomances);
+    }
+
+    var initializeData = function () {
+        self.PerfomancesFilterParameters.Page = 1;
+        self.PerfomancesFilterParameters.Records = itemsOnPage;
+
+        var parameters = ko.toJS(self.PerfomancesFilterParameters);
+
+        perfomancesService.GetCount(parameters, applyPerfomancesCount);
+        perfomancesService.GetPage(parameters, applyPerfomances);
+    }
+
+    var initialize = function ()
     {
-        perfomancesService.GetCount(applyPerfomancesCount);
-        messagesService.PerfomanceCreatedChannel.Subscribe(function()
-        {
+        initializeData();
+        messagesService.PerfomanceCreatedChannel.Subscribe(function () {
             perfomancesService.GetCount(applyPerfomancesCount);
         });
-    }
 
+    }
+    
 
     self.PerfomancesCount = ko.observable();
     self.ItemsOnPage = 3;
 
     self.PagesArray = ko.observableArray();
     self.Perfomances = ko.observableArray();
+    self.PerfomancesFilterParameters = new PerfomancesFilterParameters();
 
     self.ApplyPage = function(page)
     {
-        perfomancesService.GetPage(page.itemIndex, itemsOnPage, applyPerfomances);
+        self.PerfomancesFilterParameters.Page = page.itemIndex;
+        self.PerfomancesFilterParameters.Records = itemsOnPage;
+
+        var parameters = ko.toJS(self.PerfomancesFilterParameters);
+
+        perfomancesService.GetPage(parameters, applyPerfomances);
     };
     self.UpdatePerfomance = function(perfomance)
     {
@@ -47,6 +62,9 @@
 
         //messagesService.PerfomanceCreatedChannel.Publish();
     };
+    self.ApplyFilters = function () {
+        initializeData();
+    }
 
 
     initialize();

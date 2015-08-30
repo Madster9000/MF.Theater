@@ -1,14 +1,4 @@
-﻿function PerfomancesFilterParameters()
-{
-    var self = this;
-
-    self.StartDate = ko.observable(new Date(2000,1,1,0,0));
-    self.EndDate = ko.observable(new Date(2020, 1, 1, 0, 0));
-    self.Name = ko.observable("");
-    self.Page = 0;
-    self.Records = 0;
-}
-function IndexPageViewModel()
+﻿function IndexPageViewModel()
 {
     var self = this;
     var itemsOnPage = 2;
@@ -17,35 +7,31 @@ function IndexPageViewModel()
     var perfomancesService = PerfomancesService();
     var pagesService = PagesService();
 
-    var applyPerfomancesCount = function (pagesCount) {
+    var applyPerfomancesCount = function (pagesCount)
+    {
+        console.log(pagesCount);
         self.PerfomancesCount(pagesCount);
 
         var pages = pagesService.ComputePages(pagesCount, itemsOnPage);
         self.PagesArray(pages);
-
-        //self.PerfomancesFilterParameters.Page = 1;
-        //self.PerfomancesFilterParameters.Records = itemsOnPage;
-
-        //var parameters = ko.toJS(self.PerfomancesFilterParameters);
-        //perfomancesService.GetPage(parameters, applyPerfomances);
     }
     
     var applyPerfomances = function(perfomances)
     {
         self.Perfomances(perfomances);
-
-        applyPerfomancesCount(perfomances.length);
     }
 
     
 
     var initialize = function () {
-        perfomancesService.GetCount(applyPerfomancesCount);
+        
 
         self.PerfomancesFilterParameters.Page = 1;
         self.PerfomancesFilterParameters.Records = itemsOnPage;
 
         var parameters = ko.toJS(self.PerfomancesFilterParameters);
+
+        perfomancesService.GetCount(parameters, applyPerfomancesCount);
         perfomancesService.GetPage(parameters, applyPerfomances);
         
     }
@@ -60,12 +46,16 @@ function IndexPageViewModel()
 
     self.ApplyPage = function(page)
     {
-        self.PerfomancesFilterParameters.Page = page;
+        self.PerfomancesFilterParameters.Page = page.itemIndex;
         self.PerfomancesFilterParameters.Records = itemsOnPage;
 
         var parameters = ko.toJS(self.PerfomancesFilterParameters);
 
         perfomancesService.GetPage(parameters, applyPerfomances);
+    }
+    self.ApplyFilters = function()
+    {
+        initialize();
     }
 
 

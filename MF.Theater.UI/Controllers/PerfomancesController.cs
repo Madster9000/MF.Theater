@@ -36,9 +36,9 @@ namespace MF.Theater.UI.Controllers
 
         [HttpGet]
         [AllowAnonymous]
-        public ActionResult Count()
+        public ActionResult Count(DateTime sd, DateTime ed, string n)
         {
-            var result = mPerfomanceQueries.PerfomancesCount();
+            var result = mPerfomanceQueries.PerfomancesCount( sd, ed, n);
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 

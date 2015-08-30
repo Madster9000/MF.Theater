@@ -7,7 +7,7 @@ namespace MF.Theater.Services.Queries
 {
     public interface IPerfomanceQueries
     {
-        int PerfomancesCount();
         ICollection<PerfomanceDto> SelectPagedPerfomances(int pageNumber, int recordsOnPage, DateTime startDate, DateTime endDate, string name);
+        int PerfomancesCount(DateTime startDate, DateTime endDate, string name);
     }
 }

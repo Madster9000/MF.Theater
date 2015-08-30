@@ -8,7 +8,7 @@
     <script src="~/Content/Services/PerfomancesService.js"></script>
     <script src="~/Content/Services/PagesService.js"></script>
 <script src="~/Content/Services/TicketsService.js"></script>
-
+<script src="~/Content/ViewModels/PerfomancesFilterParameters.js"></script>
     <script src="~/Content/ViewModels/UserPageViewModel.js"></script>
 }
 
@@ -16,6 +16,34 @@
 
 
 <div id="PageBody">
+    <ul class="list-inline">
+        <li>
+            <label for="startDateFilter">Начало</label>
+            <input type="text"
+                   class="form-control datetimepicker"
+                   id="startDateFilter"
+                   data-provide="datetimepicker"
+                   data-bind="value: PerfomancesFilterParameters.StartDate"
+                   data-date-autoclose="true">
+        </li>
+        <li>
+            <label for="endDateFilterDateFilter">Конец</label>
+            <input type="text"
+                   class="form-control datetimepicker"
+                   id="endDateFilter"
+                   data-provide="datetimepicker"
+                   data-bind="value: PerfomancesFilterParameters.EndDate"
+                   data-date-autoclose="true">
+        </li>
+        <li>
+            <label for="nameFilter">Имя</label>
+            <input type="text"
+                   class="form-control"
+                   id="nameFilter"
+                   data-bind="value: PerfomancesFilterParameters.Name">
+        </li>
+    </ul>
+    <button type="button" class="btn btn-primary" data-bind="click: ApplyFilters">Отфильтровать</button>
     <div data-bind="foreach: Perfomances">
         <h3 data-bind="text: Name"></h3>
         <p data-bind="text: Description"></p>
@@ -49,7 +77,7 @@
             </li>
         </ul>
 
-        <hr />
+        <hr/>
     </div>
 
     <ul class="pagination" data-bind="foreach: PagesArray">

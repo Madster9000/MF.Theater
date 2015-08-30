@@ -226,6 +226,7 @@
     <Content Include="Content\ViewModels\AdminPageViewModel.js" />
     <Content Include="Content\ViewModels\CreatePerfomanceViewModel.js" />
     <Content Include="Content\ViewModels\IndexPageViewModel.js" />
+    <Content Include="Content\ViewModels\PerfomancesFilterParameters.js" />
     <Content Include="Content\ViewModels\PlayPeriodViewModel.js" />
     <Content Include="Content\ViewModels\UserPageViewModel.js" />
     <Content Include="favicon.ico" />

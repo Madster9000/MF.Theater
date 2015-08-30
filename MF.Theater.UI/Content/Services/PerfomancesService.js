@@ -2,9 +2,15 @@
 {
     var service =
         {
-            GetCount: function(callback)
+            GetCount: function(parameters, callback)
             {
-                $.getJSON("/perfomances/count", function (data)
+                var link = "/perfomances/count";
+
+                link += "?sd=" + moment(parameters.StartDate).format("YYYY-MM-DDTHH:mm");
+                link += "&ed=" + moment(parameters.EndDate).format("YYYY-MM-DDTHH:mm");
+                link += "&n=" + parameters.Name;
+
+                $.getJSON(link, function (data)
                 {
                     callback(data);
                 });
