@@ -196,6 +196,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PerfomancesController.cs" />
+    <Compile Include="Controllers\TicketsController.cs" />
     <Compile Include="Extensions\JsonModelBinder.cs" />
     <Compile Include="Extensions\NewtonsoftJsonResult.cs" />
     <Compile Include="Global.asax.cs">
@@ -208,7 +209,9 @@
     <Compile Include="Startup.cs" />
     <Compile Include="UnityExtensions\AuthenticationExtension.cs" />
     <Compile Include="UnityExtensions\CommandsExtension.cs" />
+    <Compile Include="UnityExtensions\CommonServicesExtension.cs" />
     <Compile Include="UnityExtensions\QueriesExtension.cs" />
+    <Compile Include="UnityExtensions\WorkflowsExtension.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-datetimepicker.css" />
@@ -219,10 +222,12 @@
     <Content Include="Content\Services\MessagesService.js" />
     <Content Include="Content\Services\PagesService.js" />
     <Content Include="Content\Services\PerfomancesService.js" />
+    <Content Include="Content\Services\TicketsService.js" />
     <Content Include="Content\ViewModels\AdminPageViewModel.js" />
     <Content Include="Content\ViewModels\CreatePerfomanceViewModel.js" />
     <Content Include="Content\ViewModels\IndexPageViewModel.js" />
     <Content Include="Content\ViewModels\PlayPeriodViewModel.js" />
+    <Content Include="Content\ViewModels\UserPageViewModel.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -247,6 +252,10 @@
     <Content Include="Scripts\knockout-3.3.0.debug.js" />
     <Content Include="Scripts\knockout-3.3.0.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\moment-with-locales.js" />
+    <Content Include="Scripts\moment-with-locales.min.js" />
+    <Content Include="Scripts\moment.js" />
+    <Content Include="Scripts\moment.min.js" />
     <Content Include="Scripts\npm.js" />
     <Content Include="Scripts\r.js" />
     <Content Include="Scripts\require.js" />
@@ -293,6 +302,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Perfomances\" />
+    <Folder Include="Views\Tickets\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

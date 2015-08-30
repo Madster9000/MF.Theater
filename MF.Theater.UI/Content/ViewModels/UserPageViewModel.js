@@ -1,4 +1,4 @@
-﻿function AdminPageViewModel() {
+﻿function UserPageViewModel() {
     var self = this;
     var itemsOnPage = 2;
 
@@ -6,6 +6,7 @@
     var perfomancesService = PerfomancesService();
     var pagesService = PagesService();
     var messagesService = MessagesService.GetInstance();
+    var ticketsService = TicketsService();
 
     var applyPerfomances = function (perfomances) {
         self.Perfomances(perfomances);
@@ -20,11 +21,9 @@
         perfomancesService.GetPage(1, itemsOnPage, applyPerfomances);
     }
 
-    var initialize = function()
-    {
+    var initialize = function () {
         perfomancesService.GetCount(applyPerfomancesCount);
-        messagesService.PerfomanceCreatedChannel.Subscribe(function()
-        {
+        messagesService.PerfomanceCreatedChannel.Subscribe(function () {
             perfomancesService.GetCount(applyPerfomancesCount);
         });
     }
@@ -40,17 +39,14 @@
     {
         perfomancesService.GetPage(page.itemIndex, itemsOnPage, applyPerfomances);
     };
-    self.UpdatePerfomance = function(perfomance)
-    {
-        var plainVm = ko.toJS(perfomance);
-        perfomancesService.Update(plainVm);
 
-        //messagesService.PerfomanceCreatedChannel.Publish();
+    self.BookTheTicket = function(playPeriod)
+    {
+        ticketsService.Create(playPeriod);
     };
 
 
     initialize();
 }
 
-// Activates knockout.js
-ko.applyBindings(new AdminPageViewModel(), document.getElementById("PageBody"));
+ko.applyBindings(new UserPageViewModel(), document.getElementById("PageBody"));

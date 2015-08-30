@@ -50,10 +50,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands\IPerfomanceCommands.cs" />
+    <Compile Include="Commands\ITicketCommands.cs" />
     <Compile Include="Commands\PerfomanceCommands.cs" />
+    <Compile Include="Commands\TicketCommands.cs" />
+    <Compile Include="Common\EmailSender.cs" />
+    <Compile Include="Common\IEmailSender.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Queries\IPerfomanceQueries.cs" />
+    <Compile Include="Queries\ITicketsQueries.cs" />
     <Compile Include="Queries\PerfomanceQueries.cs" />
+    <Compile Include="Queries\TicketQueries.cs" />
+    <Compile Include="Workflows\UpdatePerfomanceWorkflow.cs" />
+    <Compile Include="Workflows\IPerfomanceWorkflow.cs" />
+    <Compile Include="Workflows\SendEmailWorkflow.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MF.Theater.Context\MF.Theater.Context.csproj">

@@ -5,5 +5,6 @@ namespace MF.Theater.Services.Commands
     public interface IPerfomanceCommands
     {
         void Create(PerfomanceDto request);
+        void Update(PerfomanceDto request);
     }
 }

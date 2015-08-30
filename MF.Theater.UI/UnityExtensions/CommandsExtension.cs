@@ -8,6 +8,7 @@ namespace MF.Theater.UI.UnityExtensions
         protected override void Initialize()
         {
             Container.RegisterType<IPerfomanceCommands, PerfomanceCommands>();
+            Container.RegisterType<ITicketCommands, TicketCommands>();
         }
     }
 }

@@ -19,18 +19,30 @@ namespace MF.Theater.Services.Queries
         }
 
 
-        public ICollection<PerfomanceDto> SelectPagedPerfomances(int pageNumber, int recordsOnPage)
+
+        public int PerfomancesCount()
         {
             using (var context = mDbContextFactory.CreateContext())
             {
-                var offset = (pageNumber-1)*recordsOnPage;
+                return context.Set<Perfomance>().Count();
+            }
+        }
+
+        public ICollection<PerfomanceDto> SelectPagedPerfomances(int pageNumber, int recordsOnPage, DateTime startDate, DateTime endDate, string name)
+        {
+            using (var context = mDbContextFactory.CreateContext())
+            {
+                var offset = (pageNumber - 1) * recordsOnPage;
 
                 var result =
                     context.Database.SqlQuery<PerfomanceDto>
                         (
-                            "dbo.SelectPerfomancesPage @offset, @fetch",
+                            "dbo.SelectPerfomancesPage @offset, @fetch, @startDate, @endDate, @name",
                             new SqlParameter("offset", offset),
-                            new SqlParameter("fetch", recordsOnPage)
+                            new SqlParameter("fetch", recordsOnPage),
+                            new SqlParameter("startDate", startDate),
+                            new SqlParameter("endDate", endDate),
+                            new SqlParameter("name", name)
                         )
                         .ToList();
 
@@ -53,7 +65,7 @@ namespace MF.Theater.Services.Queries
                             .ToList();
                 }
 
-                
+
                 //На мой взгляд, лучше сделать так. Либо писать хитровымудренный скрипт для подтягивания связанных сущностей в одном запросе.
                 //context.Database.Log = msg => Debug.WriteLine(msg);
 
@@ -88,14 +100,6 @@ namespace MF.Theater.Services.Queries
                 //    .ToList();
 
                 return result;
-            }
-        }
-
-        public int PerfomancesCount()
-        {
-            using (var context = mDbContextFactory.CreateContext())
-            {
-                return context.Set<Perfomance>().Count();
             }
         }
     }

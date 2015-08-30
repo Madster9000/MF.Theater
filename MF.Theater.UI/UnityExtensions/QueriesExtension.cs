@@ -10,6 +10,7 @@ namespace MF.Theater.UI.UnityExtensions
         {
             Container.RegisterType<IPerfomanceQueries, PerfomanceQueries>();
             Container.RegisterType<IDbContextFactory, TheaterContextWithoutProxiesFactory>();
+            Container.RegisterType<ITicketsQueries, TicketQueries>();
         }
     }
 }

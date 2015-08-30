@@ -14,9 +14,10 @@ namespace MF.Theater.UI
             container.AddNewExtension<QueriesExtension>();
             container.AddNewExtension<AuthenticationExtension>();
             container.AddNewExtension<CommandsExtension>();
+            container.AddNewExtension<CommonServicesExtension>();
+            container.AddNewExtension<WorkflowsExtension>();
             
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
-            GlobalConfiguration.Configuration.DependencyResolver = new Microsoft.Practices.Unity.WebApi.UnityDependencyResolver(container);
         }
     }
 

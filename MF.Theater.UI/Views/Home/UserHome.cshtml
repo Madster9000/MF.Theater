@@ -2,3 +2,57 @@
     ViewBag.Title = "Заказ билетов";
 }
 
+@section scripts
+{
+    <script src="~/Content/Services/MessagesService.js"></script>
+    <script src="~/Content/Services/PerfomancesService.js"></script>
+    <script src="~/Content/Services/PagesService.js"></script>
+<script src="~/Content/Services/TicketsService.js"></script>
+
+    <script src="~/Content/ViewModels/UserPageViewModel.js"></script>
+}
+
+
+
+
+<div id="PageBody">
+    <div data-bind="foreach: Perfomances">
+        <h3 data-bind="text: Name"></h3>
+        <p data-bind="text: Description"></p>
+
+
+        <ul class="list-group" data-bind="foreach: PlayPeriods">
+            <li class="list-group-item">
+                <ul class="list-inline">
+                    <li>
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">Начало:</div>
+                            <div class="panel-body" data-bind="text: StartDate">
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">Конец:</div>
+                            <div class="panel-body" data-bind="text: EndDate"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">количество билетов:</div>
+                            <div class="panel-body" data-bind="text: TicketsCapacity"></div>
+                        </div>
+                    </li>
+                </ul>
+                <button type="button" class="btn btn-primary" data-bind="click: function(){$root.BookTheTicket($data)}">Заказать</button>
+
+            </li>
+        </ul>
+
+        <hr />
+    </div>
+
+    <ul class="pagination" data-bind="foreach: PagesArray">
+        <li><span data-bind="text: itemIndex, click: $parent.ApplyPage" style="cursor: pointer"></span></li>
+    </ul>
+</div>

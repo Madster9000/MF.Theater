@@ -48,5 +48,46 @@ namespace MF.Theater.Services.Commands
                 context.SaveChanges();
             }
         }
+
+        public void Update(PerfomanceDto request)
+        {
+            using (var context = mDbContextFactory.CreateContext())
+            {
+                var currentPerfomance =
+                    context.Set<Perfomance>().Include("PlayPeriods").FirstOrDefault(x => x.Id == request.Id);
+
+                if (currentPerfomance == null)
+                {
+                    throw new ApplicationException("Постановка не найдена");
+                }
+
+                currentPerfomance.Name = request.Name;
+                currentPerfomance.Description = request.Description;
+
+                foreach (var playPeriodDto in request.PlayPeriods)
+                {
+                    var currentPlayPeriod = currentPerfomance.PlayPeriods.FirstOrDefault(x => x.Id == playPeriodDto.Id);
+                    if (currentPlayPeriod == null)
+                    {
+                        var playPeriod = new PlayPeriod
+                        {
+                            Id = Guid.NewGuid(),
+                            StartDate = playPeriodDto.StartDate,
+                            EndDate = playPeriodDto.EndDate,
+                            TicketsCapacity = playPeriodDto.TicketsCapacity
+                        };
+
+                        currentPerfomance.PlayPeriods.Add(playPeriod);
+                        continue;
+                    }
+
+                    currentPlayPeriod.StartDate = playPeriodDto.StartDate;
+                    currentPlayPeriod.EndDate = playPeriodDto.EndDate;
+                    currentPlayPeriod.TicketsCapacity = playPeriodDto.TicketsCapacity;
+                }
+
+                context.SaveChanges();
+            }
+        }
     }
 }
