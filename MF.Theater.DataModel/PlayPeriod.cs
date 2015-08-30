@@ -15,5 +15,10 @@ namespace MF.Theater.DataModel
         public Guid PerfomanceId { get; set; }
         public virtual Perfomance Perfomance { get; set; }
         public virtual ICollection<Ticket> Tickets { get; set; }
+
+        public PlayPeriod()
+        {
+            Tickets = new HashSet<Ticket>();
+        }
     }
 }

@@ -10,6 +10,11 @@ namespace MF.Theater.DataModel
         public string Description { get; set; }
 
         public virtual ICollection<PlayPeriod> PlayPeriods { get; set; }
+
+        public Perfomance()
+        {
+            PlayPeriods = new HashSet<PlayPeriod>();
+        }
  
     }
 }

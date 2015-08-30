@@ -49,6 +49,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\IPerfomanceCommands.cs" />
+    <Compile Include="Commands\PerfomanceCommands.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Queries\IPerfomanceQueries.cs" />
     <Compile Include="Queries\PerfomanceQueries.cs" />

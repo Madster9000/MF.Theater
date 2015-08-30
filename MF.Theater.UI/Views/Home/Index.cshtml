@@ -6,22 +6,19 @@
 
 @section scripts
 {
-    <script>
-        // This is a simple *viewmodel* - JavaScript that defines the data and behavior of your UI
-        function AppViewModel() {
-            this.firstName = ko.observable("Bert");
-            this.lastName = ko.observable("Bertington");
-        }
-
-        // Activates knockout.js
-        ko.applyBindings(new AppViewModel());
-    </script>
+    <script src="~/Content/Services/PerfomancesService.js"></script>
+    <script src="~/Content/Services/PagesService.js"></script>
+    <script src="~/Content/ViewModels/IndexPageViewModel.js"></script>
 }
+<div data-bind="foreach: Perfomances">
+    <h3 data-bind="text: Name"></h3>
+    <p data-bind="text: Description"></p>
+    <hr/>
+</div>
 
-<p>First name: <strong data-bind="text: firstName"></strong></p>
-<p>Last name: <strong data-bind="text: lastName"></strong>
-</p>
+<ul class="pagination" data-bind="foreach: PagesArray">
+    <li><span data-bind="text: itemIndex, click: $parent.ApplyPage" style="cursor: pointer"></span></li>
+</ul>
 
-<p>First name: <input data-bind="textInput: firstName" /></p>
-<p>Last name: <input data-bind="textInput: lastName" /></p>
+
 
