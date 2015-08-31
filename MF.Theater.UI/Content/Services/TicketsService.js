@@ -1,7 +1,7 @@
 ﻿var TicketsService = function () {
     var service =
         {
-            Create: function (playPeriod)
+            Create: function (playPeriod, callback)
             {
                 var link = "/tickets/create";
                 $.ajax({
@@ -9,8 +9,7 @@
                     type: "POST",
                     contentType: "application/json; charset=utf-8",
                     data: JSON.stringify(playPeriod)
-                });
-                //$.post(link, playPeriod);
+                }).done(callback);
             }
         }
 

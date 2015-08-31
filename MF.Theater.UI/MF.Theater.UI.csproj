@@ -112,6 +112,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.2\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
+    <Reference Include="System.Runtime" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -190,14 +191,12 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\UnityConfiguration.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Attributes\FromJsonAttribute.cs" />
     <Compile Include="Authentication\AuthenticationDbInitializer.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PerfomancesController.cs" />
     <Compile Include="Controllers\TicketsController.cs" />
-    <Compile Include="Extensions\JsonModelBinder.cs" />
     <Compile Include="Extensions\NewtonsoftJsonResult.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -227,6 +226,7 @@
     <Content Include="Content\ViewModels\CreatePerfomanceViewModel.js" />
     <Content Include="Content\ViewModels\IndexPageViewModel.js" />
     <Content Include="Content\ViewModels\PerfomancesFilterParameters.js" />
+    <Content Include="Content\ViewModels\PerfomanceViewModel.js" />
     <Content Include="Content\ViewModels\PlayPeriodViewModel.js" />
     <Content Include="Content\ViewModels\UserPageViewModel.js" />
     <Content Include="favicon.ico" />

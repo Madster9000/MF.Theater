@@ -17,7 +17,6 @@
             },
             GetPage: function(parameters, callback)
             {
-                console.log(parameters);
                 var link = "/perfomances/selectpage?p=" + parameters.Page + "&r=" + parameters.Records;
 
                 link += "&sd=" + moment(parameters.StartDate).format("YYYY-MM-DDTHH:mm");
@@ -29,28 +28,24 @@
                     callback(data);
                 });
             },
-            Create: function(perfomanceViewModel)
+            Create: function(perfomanceViewModel, callback)
             {
-                console.log(perfomanceViewModel);
                 var link = "/perfomances/create";
                 $.ajax({
                     url: link,
                     type: "POST",
                     contentType: "application/json; charset=utf-8",
                     data: JSON.stringify(perfomanceViewModel)
-                });
-                //$.post(link, perfomanceViewModel, null, "json");
+                }).done(callback);
             },
-            Update: function (perfomanceViewModel) {
-                console.log(perfomanceViewModel);
+            Update: function (perfomanceViewModel, callback) {
                 var link = "/perfomances/update";
                 $.ajax({
                     url: link,
                     type: "POST",
                     contentType: "application/json; charset=utf-8",
                     data: JSON.stringify(perfomanceViewModel)
-                });
-                //$.post(link, perfomanceViewModel, null, "json");
+                }).done(callback);
             }
         }
 

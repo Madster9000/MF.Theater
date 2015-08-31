@@ -9,7 +9,6 @@
     var ticketsService = TicketsService();
 
     var applyPerfomancesCount = function (pagesCount) {
-        console.log(pagesCount);
         self.PerfomancesCount(pagesCount);
 
         var pages = pagesService.ComputePages(pagesCount, itemsOnPage);
@@ -35,9 +34,11 @@
     var initialize = function ()
     {
         initializeData();
-        messagesService.PerfomanceCreatedChannel.Subscribe(function () {
-            perfomancesService.GetCount(applyPerfomancesCount);
-        });
+    }
+
+    var bookCallback = function (data) {
+        alert(data);
+        initializeData();
     }
 
 
@@ -60,7 +61,7 @@
 
     self.BookTheTicket = function(playPeriod)
     {
-        ticketsService.Create(playPeriod);
+        ticketsService.Create(playPeriod, bookCallback);
     };
     self.ApplyFilters = function()
     {

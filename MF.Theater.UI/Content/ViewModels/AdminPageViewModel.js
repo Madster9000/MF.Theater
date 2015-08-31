@@ -8,7 +8,6 @@
     var messagesService = MessagesService.GetInstance();
 
     var applyPerfomancesCount = function (pagesCount) {
-        console.log(pagesCount);
         self.PerfomancesCount(pagesCount);
 
         var pages = pagesService.ComputePages(pagesCount, itemsOnPage);
@@ -37,6 +36,10 @@
         });
 
     }
+
+    var updateCallback = function (data) {
+        alert(data);
+    }
     
 
     self.PerfomancesCount = ko.observable();
@@ -58,9 +61,7 @@
     self.UpdatePerfomance = function(perfomance)
     {
         var plainVm = ko.toJS(perfomance);
-        perfomancesService.Update(plainVm);
-
-        //messagesService.PerfomanceCreatedChannel.Publish();
+        perfomancesService.Update(plainVm, updateCallback);
     };
     self.ApplyFilters = function () {
         initializeData();
@@ -70,5 +71,4 @@
     initialize();
 }
 
-// Activates knockout.js
 ko.applyBindings(new AdminPageViewModel(), document.getElementById("PageBody"));

@@ -9,7 +9,6 @@
 
     var applyPerfomancesCount = function (pagesCount)
     {
-        console.log(pagesCount);
         self.PerfomancesCount(pagesCount);
 
         var pages = pagesService.ComputePages(pagesCount, itemsOnPage);
@@ -59,7 +58,6 @@
     }
 
 
-    //perfomancesService.GetCount(applyPerfomancesCount);
     initialize();
 }
 

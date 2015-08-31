@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using MF.Theater.DTO;
 using MF.Theater.Services.Commands;
 using MF.Theater.Services.Queries;
 using MF.Theater.Services.Workflows;
-using MF.Theater.UI.Attributes;
 using MF.Theater.UI.Extensions;
 
 namespace MF.Theater.UI.Controllers
@@ -55,7 +51,6 @@ namespace MF.Theater.UI.Controllers
         [Authorize(Roles = "admin")]
         public ActionResult Update(PerfomanceDto request)
         {
-            //mPerfomanceCommands.Update(request);
             mPerfomanceWorkflow.ExecuteStep(request);
             return Json("success");
         }
